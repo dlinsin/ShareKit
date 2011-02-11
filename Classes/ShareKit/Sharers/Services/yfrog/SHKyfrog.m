@@ -37,7 +37,7 @@
 #pragma mark Configuration : Service Defination
 
 + (NSString *)sharerTitle {
-	return @"TwitPic";
+	return @"yfrog";
 }
 
 + (BOOL)canShareImage {
@@ -203,7 +203,7 @@
 - (void)sendImage {	
 	NSString * oauthHeader = [self oauthHeader];
     
-	NSURL *serviceURL = [NSURL URLWithString:@"http://api.twitpic.com/2/upload.json"];
+	NSURL *serviceURL = [NSURL URLWithString:@"http://yfrog.com/api/xauth_upload"];
 	OAMutableURLRequest *oRequest = [[OAMutableURLRequest alloc] initWithURL:serviceURL
                                                                     consumer:super.consumer
                                                                        token:super.accessToken
@@ -220,7 +220,7 @@
 	[oRequest setValue:oauthHeader forHTTPHeaderField:@"X-Verify-Credentials-Authorization"];
     
     
-	NSString *boundary = @"0xKhTmLbOuNdArY";
+	NSString *boundary = @"a21ff70823f9";
 	NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
 	[oRequest setValue:contentType forHTTPHeaderField:@"Content-Type"];
     
@@ -237,10 +237,10 @@
 	[body appendData:[self imageData]];
 	[body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
-	[body appendData:[[NSString stringWithFormat:@"--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+	/*[body appendData:[[NSString stringWithFormat:@"--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
 	[body appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"message\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
 	[body appendData:[[super.item customValueForKey:@"status"] dataUsingEncoding:NSUTF8StringEncoding]];
-	[body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];	
+	[body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];	*/
     
 	[body appendData:[[NSString stringWithFormat:@"--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -315,7 +315,7 @@
 	if (ticket.didSucceed) {
 		[self sendDidFinish];
 	} else {		
-        NSString *string = @"Your picture is on TwitPic, but we couldn't share it on Twitter!";
+        NSString *string = @"Your picture is on yfrog, but we couldn't share it on Twitter!";
 		NSError *error = [NSError errorWithDomain:@"Twitter" code:2 userInfo:[NSDictionary dictionaryWithObject:string forKey:NSLocalizedDescriptionKey]];
 		[self sendDidFailWithError:error];
 	}
