@@ -1,8 +1,3 @@
-
-
-
-
-
 // PLEASE SEE INSTALL/CONFIG INSTRUCTIONS:
 // http://getsharekit.com/install
 
@@ -78,6 +73,9 @@
 // Bit.ly (for shortening URLs on Twitter) - http://bit.ly/account/register - after signup: http://bit.ly/a/your_api_key
 #define SHKBitLyLogin				@""
 #define SHKBitLyKey					@""
+
+// yfrog http://yfrog.com/api.php
+#define SHKyfrogAPIKey              @""
 
 // Evernote http://www.evernote.com/about/developer/api/
 #define SHKEvernoteConsumerKey      @""

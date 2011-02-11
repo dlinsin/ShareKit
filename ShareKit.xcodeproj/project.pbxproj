@@ -106,6 +106,8 @@
 		43D1DEF011D5CDD200550D75 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D1DEEF11D5CDD200550D75 /* SystemConfiguration.framework */; };
 		43EF406E11D3FFF800B1F700 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EF406D11D3FFF800B1F700 /* Security.framework */; };
 		43FF9C7412270E9F00ADE53C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43FF9C7212270E9F00ADE53C /* Localizable.strings */; };
+		B6DB9437130584A50053EFC8 /* SHKyfrog.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DB9434130584A50053EFC8 /* SHKyfrog.m */; };
+		B6DB9438130584A50053EFC8 /* SHKyfrogForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DB9436130584A50053EFC8 /* SHKyfrogForm.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -311,6 +313,10 @@
 		43FF9C7312270E9F00ADE53C /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = Classes/ShareKit/Localization/en.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
 		43FF9C7512270EB900ADE53C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Classes/ShareKit/Localization/de.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* ShareKit-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ShareKit-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		B6DB9433130584A50053EFC8 /* SHKyfrog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKyfrog.h; sourceTree = "<group>"; };
+		B6DB9434130584A50053EFC8 /* SHKyfrog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKyfrog.m; sourceTree = "<group>"; };
+		B6DB9435130584A50053EFC8 /* SHKyfrogForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKyfrogForm.h; sourceTree = "<group>"; };
+		B6DB9436130584A50053EFC8 /* SHKyfrogForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKyfrogForm.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -720,6 +726,7 @@
 		43A536C011DBE3B9004A1712 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B6DB9432130584A50053EFC8 /* yfrog */,
 				43A536C111DBE3B9004A1712 /* Delicious */,
 				4379F2891291AC9700D2A41E /* Evernote */,
 				43A536C411DBE3B9004A1712 /* Facebook */,
@@ -891,6 +898,17 @@
 			name = Localization;
 			sourceTree = "<group>";
 		};
+		B6DB9432130584A50053EFC8 /* yfrog */ = {
+			isa = PBXGroup;
+			children = (
+				B6DB9433130584A50053EFC8 /* SHKyfrog.h */,
+				B6DB9434130584A50053EFC8 /* SHKyfrog.m */,
+				B6DB9435130584A50053EFC8 /* SHKyfrogForm.h */,
+				B6DB9436130584A50053EFC8 /* SHKyfrogForm.m */,
+			);
+			path = yfrog;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1052,6 +1070,8 @@
 				4379F2C11291AC9700D2A41E /* SHKEvernote.m in Sources */,
 				4379F2EA1291AE5700D2A41E /* NSData+md5.m in Sources */,
 				4379F3B21291C45700D2A41E /* SHKTextMessage.m in Sources */,
+				B6DB9437130584A50053EFC8 /* SHKyfrog.m in Sources */,
+				B6DB9438130584A50053EFC8 /* SHKyfrogForm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
