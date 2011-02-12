@@ -237,11 +237,6 @@
 	[body appendData:[self imageData]];
 	[body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
-	/*[body appendData:[[NSString stringWithFormat:@"--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-	[body appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"message\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-	[body appendData:[[super.item customValueForKey:@"status"] dataUsingEncoding:NSUTF8StringEncoding]];
-	[body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];	*/
-    
 	[body appendData:[[NSString stringWithFormat:@"--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     
 	[oRequest setHTTPBody:body];
@@ -265,9 +260,9 @@
 		if ([super.item customBoolForSwitchKey:@"sendToTwitter"]) {
             NSString *url = @"";
             NSScanner *scanner = [NSScanner scannerWithString:[[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]];
-            [scanner scanUpToString:@"\"url\":\"" intoString:nil];
+            [scanner scanUpToString:@"\"mediaurl\":\"" intoString:nil];
             
-            if ([scanner scanString:@"\"url\":\"" intoString:nil]) {
+            if ([scanner scanString:@"\"mediaurl\":\"" intoString:nil]) {
                 [scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"\""] intoString:&url];
                 url = [url stringByReplacingOccurrencesOfString:@"\\" withString:@""];
                 NSString *twitPicStatus = [NSString stringWithFormat:@"%@ %@", [super.item customValueForKey:@"status"], url];
