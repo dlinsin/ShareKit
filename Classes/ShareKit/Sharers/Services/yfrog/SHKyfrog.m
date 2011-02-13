@@ -103,7 +103,7 @@
 
 - (void)tokenAccessTicket:(OAServiceTicket *)ticket didFinishWithData:(NSData *)data {
 	if (ticket.didSucceed) {
-		[super.item setCustomValue:[[super.pendingForm formValues] objectForKey:@"sendToTwitter"] forKey:@"sendToTwitter"];
+        [self setShareOnTwitter:[[[super.pendingForm formValues] objectForKey:@"sendToTwitter"] isEqualToString:SHKFormFieldSwitchOn]];        
 		[super.pendingForm close];
     } else {
         NSString *response = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
@@ -257,7 +257,7 @@
 
 - (void)sendImage:(OAServiceTicket *)ticket didFinishWithData:(NSData *)data {	
 	if (ticket.didSucceed) {
-		if ([super.item customBoolForSwitchKey:@"sendToTwitter"]) {
+		if ([self shareOnTwitter]) {
             NSString *url = @"";
             NSScanner *scanner = [NSScanner scannerWithString:[[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]];
             [scanner scanUpToString:@"\"mediaurl\":\"" intoString:nil];
@@ -319,6 +319,17 @@
 
 - (void)sendStatusTicket:(OAServiceTicket *)ticket didFailWithError:(NSError*)error {
 	[self sendDidFailWithError:error];
+}
+
+#pragma mark -
+#pragma mark yfrog specific
+
+- (BOOL)shareOnTwitter {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@_shareOnTwitter", [self sharerId]]];
+}
+
+- (void)setShareOnTwitter:(BOOL)share {
+    [[NSUserDefaults standardUserDefaults] setBool:share forKey:[NSString stringWithFormat:@"%@_shareOnTwitter", [self sharerId]]];
 }
 
 @end
