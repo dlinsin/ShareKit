@@ -54,7 +54,7 @@
 																							  target:self
 																							  action:@selector(cancel)];
         
-		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:SHKLocalizedString(@"Send to TwitPic")
+		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:SHKLocalizedString(@"Send to yfrog")
 																				  style:UIBarButtonItemStyleDone
 																				 target:self
 																				 action:@selector(save)];
